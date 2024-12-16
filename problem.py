@@ -27,7 +27,11 @@ def simulate_game():
     - 이 함수는 각 죄수의 성공 여부를 확인하고 전체 결과를 반환합니다.
     - 출력: True(모두 성공) 또는 False(누군가 실패)
     """
-    pass
+    boxes = create_boxes()
+    for prisoner_number in range(1, 101):
+        if not prisoner_strategy(prisoner_number, boxes):
+            return False  # 누군가 실패하면 게임 종료
+    return True  # 모두 성공
 
 def main():
     """
